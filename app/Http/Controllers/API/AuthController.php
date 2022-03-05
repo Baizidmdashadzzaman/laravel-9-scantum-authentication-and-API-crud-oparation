@@ -50,6 +50,7 @@ class AuthController extends BaseController
     public function logout(Request $request)
     {
         $userinfo =  auth()->user();
+        auth()->user()->tokens()->delete();
         return $this->handleResponse($userinfo, 'Successfully logged out.');
     }
    
